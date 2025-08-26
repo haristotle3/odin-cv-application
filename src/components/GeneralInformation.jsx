@@ -44,7 +44,7 @@ export default function GeneralInformation({
     <div className="general-information">
       <div className="name-details">
         <ContactDetails email={email} phone={phone} website={website} />
-        <h1>{name}</h1>
+        <h1>{name.toUpperCase()}</h1>
       </div>
       <AboutMe about={about} />
     </div>
