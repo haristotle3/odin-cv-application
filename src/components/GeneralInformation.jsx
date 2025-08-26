@@ -1,3 +1,8 @@
+import "../styles/generalInformation.css";
+import phoneIcon from "../assets/icons/phone.svg";
+import emailIcon from "../assets/icons/email-outline.svg";
+import webIcon from "../assets/icons/web.svg";
+
 function AboutMe({ about }) {
   return (
     <div className="about-me">
@@ -12,15 +17,15 @@ function ContactDetails({ email, phone, website }) {
     <div className="contact-details">
       <ul>
         <li>
-          <img src="" alt="Phone Icon" />
+          <img src={phoneIcon} alt="Phone Icon" className="icon" />
           {phone}
         </li>
         <li>
-          <img src="" alt="Email Icon" />
+          <img src={emailIcon} alt="Email Icon" className="icon" />
           {email}
         </li>
         <li>
-          <img src="" alt="Website Icon" />
+          <img src={webIcon} alt="Website Icon" className="icon" />
           {website}
         </li>
       </ul>
