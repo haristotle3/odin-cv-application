@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Lancelot&family=Recursive:wght@300..1000&display=swap");
+
+* {
+  font-family: "Recursive";
+}
+
+.general-information {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-details ul {
+  list-style-type: none;
+  margin: 20px;
+  padding: 0;
+}
+
+.contact-details li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+}
+
+.name-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-details h1 {
+  font-family: "Lancelot";
+  font-size: 48px;
+}
+
+.about-me h1 {
+  margin: 0;
+  padding: 12px;
+  background-color: var(--text-bg);
+}
