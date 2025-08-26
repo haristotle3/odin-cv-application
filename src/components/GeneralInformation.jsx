@@ -43,9 +43,9 @@ export default function GeneralInformation({
   return (
     <div className="general-information">
       <div className="name-details">
+        <ContactDetails email={email} phone={phone} website={website} />
         <h1>{name}</h1>
       </div>
-      <ContactDetails email={email} phone={phone} website={website} />
       <AboutMe about={about} />
     </div>
   );
