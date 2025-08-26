@@ -18,15 +18,15 @@ function ContactDetails({ email, phone, website }) {
       <ul>
         <li>
           <img src={phoneIcon} alt="Phone Icon" className="icon" />
-          {phone}
+          <span>{phone}</span>
         </li>
         <li>
           <img src={emailIcon} alt="Email Icon" className="icon" />
-          {email}
+          <span>{email}</span>
         </li>
         <li>
           <img src={webIcon} alt="Website Icon" className="icon" />
-          {website}
+          <span>{website}</span>
         </li>
       </ul>
     </div>
