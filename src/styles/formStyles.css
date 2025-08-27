@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap");
+
+.forms-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.forms-container * {
+  font-family: "Arimo";
+}
+
+.forms-container .forms-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+form {
+  text-align: left;
+  padding: 24px;
+  width: 350px;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: white;
+
+  position: relative;
+}
+
+form .all-inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.forms-container form::before {
+  content: "";
+  height: calc(100% + 12px);
+  width: calc(100% + 12px);
+  position: absolute;
+  top: -6px;
+  left: -6px;
+
+  background-image: linear-gradient(45deg, rgb(0, 81, 255), rgb(0, 166, 255));
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.forms-container .title-dropdown-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forms-container .title-dropdown-button button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.forms-container .all-inputs-container.hidden {
+  display: none;
+}
+
+form h1 {
+  margin: 0;
+}
+
+.input-group {
+  display: flex;
+  position: relative;
+}
+
+.input-group input,
+.input-group textarea {
+  flex-grow: 1;
+  padding: 10px;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.input-group label {
+  position: absolute;
+  margin: 0 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(0, 0, 0, 0.3);
+  background-color: white;
+  transition-duration: 0.1s;
+  pointer-events: none;
+}
+
+.input-group input[type="submit"] {
+  background-image: linear-gradient(
+    90deg,
+    rgb(0, 55, 255),
+    rgb(0, 119, 255),
+    rgb(0, 166, 255)
+  );
+  border: white;
+  color: white;
+  font-size: 24px;
+}
+
+.input-group label:hover,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group input:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label,
+.input-group textarea:focus ~ label {
+  top: 0;
+}
+
+textarea {
+  resize: none;
+}
