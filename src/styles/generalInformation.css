@@ -1,7 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Lancelot&family=Recursive:wght@300..1000&display=swap");
-
 * {
-  font-family: "Recursive";
+  font-family: "Newsreader";
 }
 
 .general-information {
@@ -34,7 +32,7 @@
 }
 
 .name-details h1 {
-  font-family: "Lancelot";
+  font-family: "Gentium Plus";
   font-size: 48px;
 }
 
@@ -42,4 +40,5 @@
   margin: 0;
   padding: 12px;
   background-color: var(--text-bg);
+  font-family: "Gentium Plus";
 }
