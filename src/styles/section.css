@@ -1,0 +1,33 @@
+.section > * {
+  padding: 0 16px;
+}
+
+.section h1 {
+  background-color: var(--text-bg);
+  padding: 8px 16px;
+  font-size: 24px;
+  font-family: "Gentium Plus";
+}
+
+.info-card .title.years {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.info-card .title.years * {
+  margin: 0;
+  font-size: 18px;
+}
+
+.info-card h4 {
+  margin: 4px 0;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.info-card .points {
+  margin: 18px 0;
+  font-size: 14px;
+}
