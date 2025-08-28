@@ -49,10 +49,14 @@ function Form({
   inputGroupArray,
 }) {
   return (
-    <form id={`${id}-form`} onSubmit={formSubmissionHandler}>
+    <form id={id} onSubmit={formSubmissionHandler}>
       <div className="title-dropdown-button">
         <h1>{formTitle}</h1>
-        <button onClick={dropdownButtonClickHandler} className="dropdown-btn">
+        <button
+          type="button"
+          onClick={dropdownButtonClickHandler}
+          className="dropdown-btn"
+        >
           <img
             src={formVisible ? dropdownUpButton : dropdownDownButton}
             alt="dropdown-icon"
@@ -73,23 +77,26 @@ function Form({
 export function GeneralInformationForm({
   dropdownButtonClickHandler,
   formSubmissionHandler,
+  formVisibleID,
 }) {
+  const FORM_ID = "general-information-form";
+
   const inputGroupArray = [
     { type: "text", id: "name", label: "Name" },
     { type: "tel", id: "phone-number", label: "Phone" },
     { type: "email", id: "email", label: "Email" },
     { type: "url", id: "website", label: "Website" },
     { type: "textarea", id: "about", label: "Introduce yourself" },
-    { type: "submit", value: "Submit" },
+    { type: "submit", id: `${FORM_ID}-submit`, value: "Submit" },
   ];
 
   return (
     <Form
-      id={"general-information"}
+      id={FORM_ID}
       formTitle={"General Information"}
       dropdownButtonClickHandler={dropdownButtonClickHandler}
       formSubmissionHandler={formSubmissionHandler}
-      formVisible={true}
+      formVisible={formVisibleID === FORM_ID}
       inputGroupArray={inputGroupArray}
     />
   );
@@ -98,7 +105,10 @@ export function GeneralInformationForm({
 export function ExperienceInformationForm({
   dropdownButtonClickHandler,
   formSubmissionHandler,
+  formVisibleID,
 }) {
+  const FORM_ID = "experience-form";
+
   const inputGroupArray = [
     { type: "text", id: "company-name", label: "Company Name" },
     {
@@ -115,16 +125,16 @@ export function ExperienceInformationForm({
     },
     { type: "text", id: "job-title", label: "Job title" },
     { type: "textarea", id: "role-description", label: "Describe your role" },
-    { type: "submit", value: "Add" },
+    { type: "submit", id: `${FORM_ID}-submit`, value: "Add" },
   ];
 
   return (
     <Form
-      id={"experience"}
+      id={FORM_ID}
       formTitle={"Experience"}
       dropdownButtonClickHandler={dropdownButtonClickHandler}
       formSubmissionHandler={formSubmissionHandler}
-      formVisible={true}
+      formVisible={formVisibleID === FORM_ID}
       inputGroupArray={inputGroupArray}
     />
   );
@@ -133,19 +143,22 @@ export function ExperienceInformationForm({
 export function SkillsForm({
   dropdownButtonClickHandler,
   formSubmissionHandler,
+  formVisibleID,
 }) {
+  const FORM_ID = "skills-form";
+
   const inputGroupArray = [
     { type: "text", id: "skill", label: "Skill (Java, C++ etc.)" },
-    { type: "submit", value: "Add" },
+    { type: "submit", id: `${FORM_ID}-submit`, value: "Add" },
   ];
 
   return (
     <Form
-      id={"skills"}
+      id={FORM_ID}
       formTitle={"Skills"}
       dropdownButtonClickHandler={dropdownButtonClickHandler}
       formSubmissionHandler={formSubmissionHandler}
-      formVisible={true}
+      formVisible={formVisibleID === FORM_ID}
       inputGroupArray={inputGroupArray}
     />
   );
@@ -154,23 +167,25 @@ export function SkillsForm({
 export function LanguageForm({
   dropdownButtonClickHandler,
   formSubmissionHandler,
+  formVisibleID,
 }) {
+  const FORM_ID = "language-form";
   const inputGroupArray = [
     {
       type: "text",
       id: "language",
       label: "Language (English, Japanese etc.)",
     },
-    { type: "submit", value: "Add" },
+    { type: "submit", id: `${FORM_ID}-submit`, value: "Add" },
   ];
 
   return (
     <Form
-      id={"language"}
+      id={FORM_ID}
       formTitle={"Language"}
       dropdownButtonClickHandler={dropdownButtonClickHandler}
       formSubmissionHandler={formSubmissionHandler}
-      formVisible={true}
+      formVisible={formVisibleID === FORM_ID}
       inputGroupArray={inputGroupArray}
     />
   );
