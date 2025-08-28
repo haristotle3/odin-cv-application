@@ -20,7 +20,10 @@ export default function Section({ sectionHeading, infoCardArray }) {
     <section className={`${sectionHeading.toLowerCase()} section`}>
       <h1>{sectionHeading}</h1>
       {infoCardArray.map((infoCard) => (
-        <InfoCard key={infoCard.title || infoCard.point} {...infoCard} />
+        <InfoCard
+          key={infoCard.title + infoCard.years || infoCard.point}
+          {...infoCard}
+        />
       ))}
     </section>
   );
