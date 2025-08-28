@@ -18,7 +18,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .icon {
@@ -29,9 +29,11 @@
 .name-details {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .name-details h1 {
+  text-align: right;
   font-family: "Gentium Plus";
   font-size: 48px;
 }
