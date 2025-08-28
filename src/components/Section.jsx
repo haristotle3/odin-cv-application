@@ -17,14 +17,17 @@ function InfoCard({ title, years, positionTitle, point }) {
 
 export default function Section({ sectionHeading, infoCardArray }) {
   return (
-    <section className={`${sectionHeading.toLowerCase()} section`}>
-      <h1>{sectionHeading}</h1>
-      {infoCardArray.map((infoCard) => (
-        <InfoCard
-          key={infoCard.title + infoCard.years || infoCard.point}
-          {...infoCard}
-        />
-      ))}
-    </section>
+    sectionHeading && (
+      <section className={`${sectionHeading.toLowerCase()} section`}>
+        <h1>{sectionHeading}</h1>
+        {infoCardArray &&
+          infoCardArray.map((infoCard) => (
+            <InfoCard
+              key={infoCard.title + infoCard.years || infoCard.point}
+              {...infoCard}
+            />
+          ))}
+      </section>
+    )
   );
 }

@@ -16,18 +16,24 @@ function ContactDetails({ email, phone, website }) {
   return (
     <div className="contact-details">
       <ul>
-        <li>
-          <img src={phoneIcon} alt="Phone Icon" className="icon" />
-          <span>{phone}</span>
-        </li>
-        <li>
-          <img src={emailIcon} alt="Email Icon" className="icon" />
-          <span>{email}</span>
-        </li>
-        <li>
-          <img src={webIcon} alt="Website Icon" className="icon" />
-          <span>{website}</span>
-        </li>
+        {phone && (
+          <li>
+            <img src={phoneIcon} alt="Phone Icon" className="icon" />
+            <span>{phone}</span>
+          </li>
+        )}
+        {email && (
+          <li>
+            <img src={emailIcon} alt="Email Icon" className="icon" />
+            <span>{email}</span>
+          </li>
+        )}
+        {website && (
+          <li>
+            <img src={webIcon} alt="Website Icon" className="icon" />
+            <span>{website}</span>
+          </li>
+        )}
       </ul>
     </div>
   );
@@ -44,9 +50,9 @@ export default function GeneralInformation({
     <div className="general-information">
       <div className="name-details">
         <ContactDetails email={email} phone={phone} website={website} />
-        <h1>{name.toUpperCase()}</h1>
+        {name && <h1>{name.toUpperCase()}</h1>}
       </div>
-      <AboutMe about={about} />
+      {about && <AboutMe about={about} />}
     </div>
   );
 }
