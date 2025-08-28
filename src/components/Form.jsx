@@ -161,6 +161,7 @@ export function EducationForm({
       pattern: "[12][0-9]{3}",
       label: "End year",
     },
+    { type: "text", id: "education-title", label: "Education title" },
     {
       type: "textarea",
       id: "education-description",
