@@ -85,7 +85,7 @@ export function GeneralInformationForm({
     { type: "text", id: "name", label: "Name" },
     { type: "tel", id: "phone-number", label: "Phone" },
     { type: "email", id: "email", label: "Email" },
-    { type: "url", id: "website", label: "Website" },
+    { type: "text", id: "website", label: "Website" }, // type: "url" enforces the url to start with http:// or https://
     { type: "textarea", id: "about", label: "Introduce yourself" },
     { type: "submit", id: `${FORM_ID}-submit`, value: "Submit" },
   ];
