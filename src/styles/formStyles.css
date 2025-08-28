@@ -59,6 +59,10 @@ form .all-inputs-container {
   border: none;
 }
 
+.forms-container .title-dropdown-button button img {
+  pointer-events: none;
+}
+
 .forms-container .all-inputs-container.hidden {
   display: none;
 }
