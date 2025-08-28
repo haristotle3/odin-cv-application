@@ -2,12 +2,19 @@ import { useState } from "react";
 import "../styles/formStyles.css";
 import {
   GeneralInformationForm,
-  ExperienceInformationForm,
+  ExperienceForm,
   SkillsForm,
   LanguageForm,
+  EducationForm,
 } from "./Form.jsx";
 
-export default function FormsContainer() {
+export default function FormsContainer({
+  generalInformationFormSubmissionHandler,
+  experienceFormSubmissionHandler,
+  educationFormSubmissionHandler,
+  skillsFormSubmissionHandler,
+  languageFormSubmissionHandler,
+}) {
   const [visibleFormID, setVisibleForm] = useState("general-information");
 
   function dropdownButtonClickHandler(e) {
@@ -21,20 +28,30 @@ export default function FormsContainer() {
       <div className="forms-group">
         <GeneralInformationForm
           dropdownButtonClickHandler={dropdownButtonClickHandler}
+          formSubmissionHandler={generalInformationFormSubmissionHandler}
           formVisibleID={visibleFormID}
         />
         <SkillsForm
           dropdownButtonClickHandler={dropdownButtonClickHandler}
+          formSubmissionHandler={skillsFormSubmissionHandler}
+          formVisibleID={visibleFormID}
+        />
+
+        <EducationForm
+          dropdownButtonClickHandler={dropdownButtonClickHandler}
+          formSubmissionHandler={educationFormSubmissionHandler}
           formVisibleID={visibleFormID}
         />
       </div>
       <div className="forms-group">
-        <ExperienceInformationForm
+        <ExperienceForm
           dropdownButtonClickHandler={dropdownButtonClickHandler}
+          formSubmissionHandler={experienceFormSubmissionHandler}
           formVisibleID={visibleFormID}
         />
         <LanguageForm
           dropdownButtonClickHandler={dropdownButtonClickHandler}
+          formSubmissionHandler={languageFormSubmissionHandler}
           formVisibleID={visibleFormID}
         />
       </div>
