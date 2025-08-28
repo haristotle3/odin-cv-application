@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+:root {
+  --text-bg: rgba(87, 151, 235, 0.181);
+}
+
+#root {
+  display: grid;
+  gap: 64px;
+  grid-template-columns: 1fr 1fr;
+  margin: 64px 128px;
+}
