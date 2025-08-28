@@ -102,7 +102,7 @@ export function GeneralInformationForm({
   );
 }
 
-export function ExperienceInformationForm({
+export function ExperienceForm({
   dropdownButtonClickHandler,
   formSubmissionHandler,
   formVisibleID,
@@ -139,6 +139,7 @@ export function ExperienceInformationForm({
     />
   );
 }
+
 
 export function SkillsForm({
   dropdownButtonClickHandler,
