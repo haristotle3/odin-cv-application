@@ -23,7 +23,11 @@ export default function Section({ sectionHeading, infoCardArray }) {
         {infoCardArray &&
           infoCardArray.map((infoCard) => (
             <InfoCard
-              key={infoCard.title + infoCard.years || infoCard.point}
+              key={
+                infoCard.title && infoCard.years
+                  ? infoCard.title + infoCard.years
+                  : infoCard.point
+              }
               {...infoCard}
             />
           ))}
