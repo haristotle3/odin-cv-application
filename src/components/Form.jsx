@@ -140,6 +140,46 @@ export function ExperienceForm({
   );
 }
 
+export function EducationForm({
+  dropdownButtonClickHandler,
+  formSubmissionHandler,
+  formVisibleID,
+}) {
+  const FORM_ID = "education-form";
+
+  const inputGroupArray = [
+    { type: "text", id: "school-name", label: "School Name" },
+    {
+      type: "text",
+      id: "education-start-year",
+      pattern: "[12][0-9]{3}",
+      label: "Start year",
+    },
+    {
+      type: "text",
+      id: "education-end-year",
+      pattern: "[12][0-9]{3}",
+      label: "End year",
+    },
+    {
+      type: "textarea",
+      id: "education-description",
+      label: "Describe your education",
+    },
+    { type: "submit", id: `${FORM_ID}-submit`, value: "Add" },
+  ];
+
+  return (
+    <Form
+      id={FORM_ID}
+      formTitle={"Education"}
+      dropdownButtonClickHandler={dropdownButtonClickHandler}
+      formSubmissionHandler={formSubmissionHandler}
+      formVisible={formVisibleID === FORM_ID}
+      inputGroupArray={inputGroupArray}
+    />
+  );
+}
 
 export function SkillsForm({
   dropdownButtonClickHandler,
