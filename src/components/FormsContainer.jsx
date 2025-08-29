@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../styles/formStyles.css";
 import {
   GeneralInformationForm,
@@ -9,19 +8,14 @@ import {
 } from "./Form.jsx";
 
 export default function FormsContainer({
+  dropdownButtonClickHandler,
+  visibleFormID,
   generalInformationFormSubmissionHandler,
   experienceFormSubmissionHandler,
   educationFormSubmissionHandler,
   skillsFormSubmissionHandler,
   languageFormSubmissionHandler,
 }) {
-  const [visibleFormID, setVisibleForm] = useState("general-information");
-
-  function dropdownButtonClickHandler(e) {
-    const formID = e.target.parentElement.parentElement.id; // e.parentElement.parentElement is the form element
-    // Note that <img> inside the <button> is styled to have no pointer events.
-    formID !== visibleFormID ? setVisibleForm(formID) : setVisibleForm(null);
-  }
 
   return (
     <div className="forms-container">
