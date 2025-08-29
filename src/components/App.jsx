@@ -92,6 +92,61 @@ export default function App() {
     return;
   }
 
+  function experienceFormEditHandler(e) {
+    e.preventDefault();
+    const infoCard = e.target.parentElement;
+    const companyNameValue = infoCard.children[0].children[0].textContent;
+    const years = infoCard.children[0].children[1];
+    console.log(infoCard.children[0]);
+    const startYearValue = years.textContent.split("–")[0].trim();
+    const endYearValue = years.textContent.split("–")[1].trim();
+    const jobTitleValue = infoCard.children[1].textContent;
+    const roleDescriptionValue = infoCard.children[2].textContent;
+
+    const companyNameInput = document.querySelector(
+      `#experience-form input#company-name`
+    );
+    const experienceStartYearInput = document.querySelector(
+      `#experience-form input#experience-start-year`
+    );
+    const experienceEndYearInput = document.querySelector(
+      `#experience-form input#experience-end-year`
+    );
+    const jobTitleInput = document.querySelector(
+      `#experience-form input#job-title`
+    );
+    const roleDescriptionInput = document.querySelector(
+      `#experience-form textarea#role-description`
+    );
+
+    companyNameInput.value = companyNameValue;
+    experienceStartYearInput.value = startYearValue;
+    experienceEndYearInput.value = endYearValue;
+    jobTitleInput.value = jobTitleValue;
+    roleDescriptionInput.value = roleDescriptionValue;
+
+    const newObj = {
+      title: companyNameInput.value,
+      years: `${experienceStartYearInput.value} – ${experienceEndYearInput.value}`,
+      positionTitle: jobTitleInput.value,
+      point: roleDescriptionInput.value,
+    };
+
+    const newInfoCardArray = experienceSection.infoCardArray.filter(
+      (object) => {
+        return JSON.stringify(object) !== JSON.stringify(newObj);
+      }
+    );
+
+    setExperienceSection((experienceSection) => ({
+      ...experienceSection,
+      infoCardArray: newInfoCardArray,
+    }));
+
+    setVisibleForm("experience-form");
+    return;
+  }
+
   function educationFormSubmissionHandler(e) {
     e.preventDefault();
     if (!educationSection.infoCardArray.length) {
