@@ -1,6 +1,7 @@
 import "../styles/section.css";
+import editButtonIcon from "../assets/icons/square-edit-outline.svg";
 
-function InfoCard({ title, years, positionTitle, point }) {
+function InfoCard({ title, years, positionTitle, point, editClickHandler }) {
   return (
     <div className="info-card">
       {title && years && (
@@ -11,11 +12,19 @@ function InfoCard({ title, years, positionTitle, point }) {
       )}
       {positionTitle && <h4>{positionTitle}</h4>}
       {point && <div className="points">{point}</div>}
+      <button type="button" onClick={editClickHandler} className="edit-btn">
+        <span>Edit</span>
+        <img src={editButtonIcon} />
+      </button>
     </div>
   );
 }
 
-export default function Section({ sectionHeading, infoCardArray }) {
+export default function Section({
+  sectionHeading,
+  infoCardArray,
+  editClickHandler,
+}) {
   return (
     sectionHeading && (
       <section className={`${sectionHeading.toLowerCase()} section`}>
@@ -29,6 +38,7 @@ export default function Section({ sectionHeading, infoCardArray }) {
                   : infoCard.point
               }
               {...infoCard}
+              editClickHandler={editClickHandler}
             />
           ))}
       </section>
