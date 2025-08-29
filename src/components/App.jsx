@@ -311,6 +311,30 @@ export default function App() {
     return;
   }
 
+  function languagesFormEditHandler(e) {
+       e.preventDefault();
+    const infoCard = e.target.parentElement;
+    const languageValue = infoCard.children[0].textContent;
+
+    const languageInput = document.querySelector(`
+      #language-form input#language`);
+
+    languageInput.value = languageValue;
+
+    const newObj = { point: languageInput.value }
+    const newInfoCardArray = languagesSection.infoCardArray.filter((object) => {
+      return JSON.stringify(object) !== JSON.stringify(newObj);
+    });
+
+    setLanguagesSection((languageSection) => ({
+      ...languageSection,
+      infoCardArray: newInfoCardArray,
+    }));
+
+    setVisibleForm("language-form");
+    return;
+  }
+
   return (
     <>
       <FormsContainer
