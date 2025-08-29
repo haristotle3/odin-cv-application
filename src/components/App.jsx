@@ -188,6 +188,58 @@ export default function App() {
     return;
   }
 
+  function educationFormEditHandler(e) {
+    e.preventDefault();
+    const infoCard = e.target.parentElement;
+    const schoolNameValue = infoCard.children[0].children[0].textContent;
+    const years = infoCard.children[0].children[1];
+    const startYearValue = years.textContent.split("–")[0].trim();
+    const endYearValue = years.textContent.split("–")[1].trim();
+    const educationTitleValue = infoCard.children[1].textContent;
+    const educationDescriptionValue = infoCard.children[2].textContent;
+
+    const schoolNameInput = document.querySelector(
+      `#education-form input#school-name`
+    );
+    const educationStartYearInput = document.querySelector(
+      `#education-form input#education-start-year`
+    );
+    const educationEndYearInput = document.querySelector(
+      `#education-form input#education-end-year`
+    );
+    const educationTitle = document.querySelector(
+      `#education-form input#education-title`
+    );
+    const educationDescriptionInput = document.querySelector(
+      `#education-form textarea#education-description`
+    );
+
+    schoolNameInput.value = schoolNameValue;
+    educationStartYearInput.value = startYearValue;
+    educationEndYearInput.value = endYearValue;
+    educationTitle.value = educationTitleValue;
+    educationDescriptionInput.value = educationDescriptionValue;
+
+    const newObj = {
+      title: schoolNameInput.value,
+      years: `${educationStartYearInput.value} – ${educationEndYearInput.value}`,
+      positionTitle: educationTitle.value,
+      point: educationDescriptionInput.value,
+    };
+
+    const newInfoCardArray = educationSection.infoCardArray.filter((object) => {
+      return JSON.stringify(object) !== JSON.stringify(newObj);
+    });
+
+    setEducationSection((educationSection) => ({
+      ...educationSection,
+      infoCardArray: newInfoCardArray,
+    }));
+
+    setVisibleForm("education-form");
+    return;
+  }
+
   function skillsFormSubmissionHandler(e) {
     e.preventDefault();
     if (!skillsSection.infoCardArray.length) {
