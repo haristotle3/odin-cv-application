@@ -338,6 +338,8 @@ export default function App() {
   return (
     <>
       <FormsContainer
+        dropdownButtonClickHandler={dropdownButtonClickHandler}
+        visibleFormID={visibleFormID}
         generalInformationFormSubmissionHandler={
           generalInformationFormSubmissionHandler
         }
