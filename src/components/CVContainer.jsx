@@ -13,11 +13,11 @@ export default function CVContainer({
     <div className="cv-container">
       <GeneralInformation {...generalInformationSection} />
       <div className="non-general-information">
-        <div className="experience-skills-container">
+        <div className="experience-education-container">
           <Section {...experienceSection} />
           <Section {...educationSection} />
         </div>
-        <div className="education-skills-container">
+        <div className="language-skills-container">
           <Section {...skillsSection} />
           <Section {...languagesSection} />
         </div>
