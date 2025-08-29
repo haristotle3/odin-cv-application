@@ -273,7 +273,7 @@ export default function App() {
 
     skillsInput.value = skillsValue;
 
-    const newObj = { point: skillsInput.value }
+    const newObj = { point: skillsInput.value };
     const newInfoCardArray = skillsSection.infoCardArray.filter((object) => {
       return JSON.stringify(object) !== JSON.stringify(newObj);
     });
@@ -312,7 +312,7 @@ export default function App() {
   }
 
   function languagesFormEditHandler(e) {
-       e.preventDefault();
+    e.preventDefault();
     const infoCard = e.target.parentElement;
     const languageValue = infoCard.children[0].textContent;
 
@@ -321,7 +321,7 @@ export default function App() {
 
     languageInput.value = languageValue;
 
-    const newObj = { point: languageInput.value }
+    const newObj = { point: languageInput.value };
     const newInfoCardArray = languagesSection.infoCardArray.filter((object) => {
       return JSON.stringify(object) !== JSON.stringify(newObj);
     });
@@ -351,9 +351,13 @@ export default function App() {
       <CVContainer
         generalInformationSection={generalInformationSection}
         educationSection={educationSection}
+        educationFormEditHandler={educationFormEditHandler}
         experienceSection={experienceSection}
+        experienceFormEditHandler={experienceFormEditHandler}
         languagesSection={languagesSection}
+        languagesFormEditHandler={languagesFormEditHandler}
         skillsSection={skillsSection}
+        skillsFormEditHandler={skillsFormEditHandler}
       />
     </>
   );
