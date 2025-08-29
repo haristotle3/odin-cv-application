@@ -16,6 +16,13 @@ export default function App() {
   const [languagesSection, setLanguagesSection] = useState({
     infoCardArray: [],
   });
+  const [visibleFormID, setVisibleForm] = useState(null);
+
+  function dropdownButtonClickHandler(e) {
+    const formID = e.target.parentElement.parentElement.id; // e.parentElement.parentElement is the form element
+    // Note that <img> inside the <button> is styled to have no pointer events.
+    formID !== visibleFormID ? setVisibleForm(formID) : setVisibleForm(null);
+  }
 
   function generalInformationFormSubmissionHandler(e) {
     e.preventDefault();
