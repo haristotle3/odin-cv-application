@@ -1,21 +1,67 @@
 import FormsContainer from "./FormsContainer";
 import CVContainer from "./CVContainer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
   const [generalInformationSection, setGeneralInformationSection] = useState(
-    {}
+    () => {
+      if (localStorage.getItem("generalInformation")) {
+        return JSON.parse(localStorage.getItem("generalInformation"));
+      }
+      return {};
+    }
   );
-  const [experienceSection, setExperienceSection] = useState({
-    infoCardArray: [],
+  
+  useEffect(() => {
+    localStorage.setItem(
+      "generalInformation",
+      JSON.stringify(generalInformationSection)
+    );
+  }, [generalInformationSection]);
+
+  const [experienceSection, setExperienceSection] = useState(() => {
+    if (localStorage.getItem("experienceSection")) {
+      return JSON.parse(localStorage.getItem("experienceSection"));
+    }
+    return { infoCardArray: [] };
   });
-  const [educationSection, setEducationSection] = useState({
-    infoCardArray: [],
+  useEffect(() => {
+    localStorage.setItem(
+      "experienceSection",
+      JSON.stringify(experienceSection)
+    );
+  }, [experienceSection]);
+
+  const [educationSection, setEducationSection] = useState(() => {
+    if (localStorage.getItem("educationSection")) {
+      return JSON.parse(localStorage.getItem("educationSection"));
+    }
+    return { infoCardArray: [] };
   });
-  const [skillsSection, setSkillsSection] = useState({ infoCardArray: [] });
-  const [languagesSection, setLanguagesSection] = useState({
-    infoCardArray: [],
+  useEffect(() => {
+    localStorage.setItem("educationSection", JSON.stringify(educationSection));
+  }, [educationSection]);
+
+  const [skillsSection, setSkillsSection] = useState(() => {
+    if (localStorage.getItem("skillsSection")) {
+      return JSON.parse(localStorage.getItem("skillsSection"));
+    }
+    return { infoCardArray: [] };
   });
+  useEffect(() => {
+    localStorage.setItem("skillsSection", JSON.stringify(skillsSection));
+  }, [skillsSection]);
+
+  const [languagesSection, setLanguagesSection] = useState(() => {
+    if (localStorage.getItem("languagesSection")) {
+      return JSON.parse(localStorage.getItem("languagesSection"));
+    }
+    return { infoCardArray: [] };
+  });
+  useEffect(() => {
+    localStorage.setItem("languagesSection", JSON.stringify(languagesSection));
+  }, [languagesSection]);
+
   const [visibleFormID, setVisibleForm] = useState(null);
 
   function dropdownButtonClickHandler(e) {
