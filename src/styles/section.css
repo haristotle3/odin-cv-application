@@ -9,6 +9,10 @@
   font-family: "Gentium Plus";
 }
 
+.info-card {
+  padding: 4px;
+}
+
 .info-card .title.years {
   display: flex;
   justify-content: space-between;
@@ -46,8 +50,16 @@
   display: none;
 }
 
+.info-card:hover .edit-btn * {
+  pointer-events: none;
+}
+
 .info-card:hover .edit-btn {
   display: block;
+}
+
+.info-card:has(.edit-btn:hover) {
+  background-color: rgba(158, 158, 158, 0.515);
 }
 
 .info-card .edit-btn img {
