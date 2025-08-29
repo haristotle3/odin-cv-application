@@ -263,6 +263,30 @@ export default function App() {
     return;
   }
 
+  function skillsFormEditHandler(e) {
+    e.preventDefault();
+    const infoCard = e.target.parentElement;
+    const skillsValue = infoCard.children[0].textContent;
+
+    const skillsInput = document.querySelector(`
+      #skills-form input#skill`);
+
+    skillsInput.value = skillsValue;
+
+    const newObj = { point: skillsInput.value }
+    const newInfoCardArray = skillsSection.infoCardArray.filter((object) => {
+      return JSON.stringify(object) !== JSON.stringify(newObj);
+    });
+
+    setSkillsSection((skillsSection) => ({
+      ...skillsSection,
+      infoCardArray: newInfoCardArray,
+    }));
+
+    setVisibleForm("skills-form");
+    return;
+  }
+
   function languageFormSubmissionHandler(e) {
     e.preventDefault();
     if (!languagesSection.infoCardArray.length) {
